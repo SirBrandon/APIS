@@ -1,0 +1,92 @@
+[
+	{
+		name: "Robert Carlyle",
+		rushingYards: 246,
+		touchdownsThrown: 3,
+		sacks: 0,
+		madeFieldGoals: 2,
+		missedFieldGoals: 3,
+		catchesMade: 5
+	},
+	{
+		name: "Joseph Felix",
+		rushingYards: 432,
+		touchdownsThrown: 0,
+		sacks: 4,
+		madeFieldGoals: 3,
+		missedFieldGoals: 5,
+		catchesMade: 4
+	},
+	{
+		name: "James Fellers",
+		rushingYards: 126,
+		touchdownsThrown: 0,
+		sacks: 1,
+		madeFieldGoals: 7,
+		missedFieldGoals: 2,
+		catchesMade: 24
+	},
+	{
+		name: "Trent Boxxer",
+		rushingYards: 643,
+		touchdownsThrown: 8,
+		sacks: 12,
+		madeFieldGoals: 3,
+		missedFieldGoals: 5,
+		catchesMade: 31
+	},
+	{
+		name: "Samuel Collers",
+		rushingYards: 365,
+		touchdownsThrown: 0,
+		sacks: 0,
+		madeFieldGoals: 1,
+		missedFieldGoals: 4,
+		catchesMade: 45
+	},
+	{
+		name: "Alphonse Rollero",
+		rushingYards: 587,
+		touchdownsThrown: 0,
+		sacks: 15,
+		madeFieldGoals: 5,
+		missedFieldGoals: 2,
+		catchesMade: 42
+	},
+	{
+		name: "Damien Sills",
+		rushingYards: 774,
+		touchdownsThrown: 0,
+		sacks: 0,
+		madeFieldGoals: 9,
+		missedFieldGoals: 1,
+		catchesMade: 56
+	},
+	{
+		name: "Dylan Green",
+		rushingYards: 853,
+		touchdownsThrown: 4,
+		sacks: 7,
+		madeFieldGoals: 3,
+		missedFieldGoals: 8,
+		catchesMade: 0
+	},
+	{
+		name: "Nathan Hoff",
+		rushingYards: 281,
+		touchdownsThrown: 0,
+		sacks: 1,
+		madeFieldGoals: 4,
+		missedFieldGoals: 1,
+		catchesMade: 5
+	},
+	{
+		name: "Lester Varric",
+		rushingYards: 967,
+		touchdownsThrown: 7,
+		sacks: 7,
+		madeFieldGoals: 6,
+		missedFieldGoals: 1,
+		catchesMade: 7
+	}
+]
