@@ -1,0 +1,34 @@
+<div class="body-content">
+    <div class="football-container">
+        <div class="control-center">
+            <h1 class="title has-text-primary">
+                Control Panel
+            </h1>
+            <div class="button-group">
+                <button class="button button-group-item is-primary has-text-white" (click)="postMostSacksResults()">
+                    Most Sacks
+                </button>
+                <button class="button button-group-item is-primary has-text-white" (click)="postMostRushingYardsResults()">
+                    Most Yards
+                </button>
+                <button class="button button-group-item is-primary has-text-white" (click)="postMostTouchdownsResults()">
+                    Most TD's
+                </button>
+                <button class="button button-group-item is-primary has-text-white" (click)="postLeastRushingYardsResults()">
+                    Least Yards
+                </button>
+                <button class="button button-group-item is-primary has-text-white" (click)="postFieldGoalsAscendingResults()">
+                    FG's Asc.
+                </button>
+            </div>
+        </div>
+        <div class="results-view">
+            <h1 class="title has-text-primary">
+                Results
+            </h1>
+            <p class="results-text">
+                {{ displayText }}
+            </p>
+        </div>
+    </div>
+</div>

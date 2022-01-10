@@ -15,6 +15,13 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
+// CORS HEADERS MIDDLEWARE
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 //connect to mongoose
 const dbPath = 'mongodb://localhost/sports';
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
