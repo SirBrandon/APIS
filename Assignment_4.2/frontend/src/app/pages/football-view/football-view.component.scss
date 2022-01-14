@@ -23,7 +23,7 @@
 .control-center {
     display: flex;
     flex-direction: column;
-    height: 20%;
+    height: 35%;
     width: 100%;
     align-items: center;
     border-top-left-radius: 8px;
@@ -39,10 +39,19 @@
     }
 }
 
+.crud-button-group {
+    display: flex;
+    margin-top: 50px;
+    .button-group-item {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
 .results-view {
     display: flex;
     flex-direction: column;
-    height: 80%;
+    height: 65%;
     width: 100%;
     align-items: center;
     border-bottom-left-radius: 8px;

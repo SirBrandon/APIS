@@ -21,6 +21,20 @@
                     FG's Asc.
                 </button>
             </div>
+            <div class="crud-button-group">
+                <button class="button button-group-item is-primary has-text-white" (click)="getPlayers()">
+                    List Players
+                </button>
+                <button class="button button-group-item is-primary has-text-white" routerLink="/add-player">
+                    Create Player
+                </button>
+                <button class="button button-group-item is-primary has-text-white" routerLink="/update-player">
+                    Update Player
+                </button>
+                <button class="button button-group-item is-primary has-text-white" routerLink="/delete-player">
+                    Delete Player
+                </button>
+            </div>
         </div>
         <div class="results-view">
             <h1 class="title has-text-primary">

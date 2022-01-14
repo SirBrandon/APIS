@@ -1,0 +1,25 @@
+<div class="centered-content">
+    <div class="modal-box">
+        <h1 class="title">
+            Add a new player
+        </h1>
+        <div class="field-inputs">
+            <input #playerInput class="input has-background-light is-medium" type="text" placeholder="Enter Player Name...">
+            <input #rushingYardsInput class="input has-background-light is-medium" type="text" placeholder="Enter Rushing Yards...">
+            <input #touchdownsThrownInput class="input has-background-light is-medium" type="text" placeholder="Enter Touchdowns Thrown...">
+            <input #sacksInput class="input has-background-light is-medium" type="text" placeholder="Enter Sacks...">
+            <input #madeFieldGoalsInput class="input has-background-light is-medium" type="text" placeholder="Enter Made Field Goals...">
+            <input #missedFieldGoalsInput class="input has-background-light is-medium" type="text" placeholder="Enter Missed Field Goals...">
+            <input #catchesMadeInput class="input has-background-light is-medium" type="text" placeholder="Enter Catches Made...">
+        </div>
+        <br><br>
+        <div class="buttons is-right">
+            <button class="button is-medium" routerLink="/">
+                Cancel
+            </button>
+            <button class="button is-primary has-text-white is-medium" (click)="createPlayer([playerInput.value, rushingYardsInput.value, touchdownsThrownInput.value, sacksInput.value, madeFieldGoalsInput.value, missedFieldGoalsInput.value, catchesMadeInput.value])">
+                Create
+            </button>
+        </div>
+    </div>
+</div>

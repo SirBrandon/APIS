@@ -46,4 +46,14 @@ export class FootballViewComponent implements OnInit {
       this.displayText = this.displayText.substring(0, this.displayText.length - 2);
     });
   }
+
+  getPlayers(): void {
+    this.webReqService.getPlayers('api/sports').subscribe((response: any) => {
+      this.displayText = "";
+      response.data.forEach((element: { name: string; }) => {
+        this.displayText += element.name + ", ";
+      });
+      this.displayText = this.displayText.substring(0, this.displayText.length - 2);
+    });
+  }
 }
