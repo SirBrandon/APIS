@@ -1,0 +1,27 @@
+<div class="centered-content">
+    <div class="dash-container">
+        <div class="sidebar">
+            <h1 class="title has-text-link">
+                Profile
+            </h1>
+            <div class="profile-menu">
+                <a class="profile-menu-item" *ngFor="let person of profiles">
+                    {{ person.profile }}
+                </a>
+            </div>
+            <button class="button is-link has-text-white" routerLink="/new-profile">+ New Profile</button>
+        </div>
+        <div class="action-container">
+            <div class="workout-container">
+                <h1 class="corner-title has-text-primary">
+                    Workout
+                </h1>
+            </div>
+            <div class="health-container">
+                <h1 class="corner-title has-text-primary">
+                    Health
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
