@@ -6,17 +6,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardViewComponent } from './pages/dashboard-view/dashboard-view.component';
 import { NewProfileComponent } from './pages/new-profile/new-profile.component';
+import { FormsModule } from '@angular/forms';
+import { DeleteProfileComponent } from './pages/delete-profile/delete-profile.component';
+import { DeleteWorkoutComponent } from './pages/delete-workout/delete-workout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardViewComponent,
-    NewProfileComponent
+    NewProfileComponent,
+    DeleteProfileComponent,
+    DeleteWorkoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

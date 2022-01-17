@@ -4,9 +4,8 @@ const WorkoutSchema = new mongoose.Schema({
     workout: {
         type: Object,
         required: true,
-        profileId: { type: String, required: true, unique: true },
         name: String,
-        date: Date.now,
+        date: { type: Date, required: true},
         workoutType: {
             type: Object,
             required: true,
@@ -14,7 +13,8 @@ const WorkoutSchema = new mongoose.Schema({
             weight: { type: Number, required: true },
             reps: { type: Number, required: true }
         }
-    }
+    },
+    profileId: { type: String, required: true },
 });
 
 const Workout = mongoose.model('Workout', WorkoutSchema);

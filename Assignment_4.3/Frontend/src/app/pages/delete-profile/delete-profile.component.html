@@ -1,0 +1,19 @@
+<div class="centered-content">
+    <div class="modal-box">
+        <h1 class="title">
+            Delete profile
+        </h1>
+        <h1 class="small-title delete-confirmation">
+            Are you sure that you want to delete<br>"{{ profileName }}"?
+        </h1>
+        <br>
+        <div class="buttons is-right">
+            <button class="button is-medium" routerLink="/">
+                Cancel
+            </button>
+            <button class="button is-danger has-text-white is-medium" (click)="deleteProfile()">
+                Delete
+            </button>
+        </div>
+    </div>
+</div>

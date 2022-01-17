@@ -39,13 +39,28 @@ app.post('/profiles', (req, res) => {
     });
 });
 
+/**
+ * DELETE
+ * Purpose: Delete a profile and all associated workouts and health information
+ */
+app.delete('/profiles/:profileId', (req, res) => {
+    Profile.findOneAndRemove({
+        _id: req.params.profileId
+    }).then((removedProfileDoc) => {
+        res.send(removedProfileDoc);
+        deleteProfileAssociation(removedProfileDoc._id);
+    })
+})
+
 // WORKOUT ROUTES
 /**
- * GET /workouts
+ * GET /profiles/:profileId/workouts
  * Purpose: Get all workout information
  */
-app.get('/workouts', (req, res) => {
-    Workout.find({}).then((workouts) => {
+app.get('/profiles/:profileId/workouts', (req, res) => {
+    Workout.find({
+        profileId: req.params.profileId
+    }).then((workouts) => {
         res.send(workouts);
     }).catch((e) => {
         res.send(e);
@@ -53,24 +68,70 @@ app.get('/workouts', (req, res) => {
 });
 
 /**
- * POST /workouts
+ * POST /profiles/:profileId/workouts
  * Purpose: Create a workout
  */
-app.post('/workouts', (req, res) => {
+app.post('/profiles/:profileId/workouts', (req, res) => {
     let newWorkout = new Workout({
         workout: {
             name: req.body.workout.name,
+            date: req.body.workout.date,
             workoutType: {
                 workoutName: req.body.workout.workoutType.workoutName,
                 weight: req.body.workout.workoutType.weight,
                 reps: req.body.workout.workoutType.reps
             }
-        }
+        },
+        profileId: req.body.profileId
     });
     newWorkout.save().then((workoutDoc) => {
         res.send(workoutDoc);
     });
 });
+
+/**
+ * PATCH /profiles/:profileId/workouts/:workoutId
+ * Purpose: Update a workout
+ */
+app.patch('/profiles/:profileId/workouts/:workoutId', (req, res) => {
+    Workout.findOneAndUpdate({
+        profileId: req.params.profileId,
+        _id: req.params.workoutId
+    }, {
+        $set: req.body
+    }).then(() => {
+        res.send({message: 'Update Successful'});
+    }).catch((e) => {
+        res.send(e);
+    });
+});
+
+/**
+ * DELETE /profiles/:profileId/workouts/:workoutId
+ * Purpose: Delete a workout
+ */
+app.delete('/profiles/:profileId/workouts/:workoutId', (req, res) => {
+    Workout.findOneAndRemove({
+        profileId: req.params.profileId,
+        _id: req.params.workoutId
+    }).then((RemovedWorkoutDoc) => {
+        if (RemovedWorkoutDoc) {
+            res.send(RemovedWorkoutDoc);
+        }
+        else {
+            res.sendStatus(404);
+        }
+    });
+});
+
+/* HELPER METHODS */
+let deleteProfileAssociation = (_profileId) => {
+    Workout.deleteMany({
+        profileId: _profileId
+    }).then(() => {
+        console.log("Workouts from " + _profileId + " were deleted");
+    })
+}
 
 app.listen(3000, () => {
     console.log("Server is listening on port 3000");

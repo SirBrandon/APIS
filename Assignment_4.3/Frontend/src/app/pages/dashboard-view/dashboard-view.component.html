@@ -5,17 +5,112 @@
                 Profile
             </h1>
             <div class="profile-menu">
-                <a class="profile-menu-item" *ngFor="let person of profiles">
+                <a class="profile-menu-item" *ngFor="let person of profiles" [routerLink]="['/dashboard', person._id]" routerLinkActive="is-active" (click)="manageMenu()">
                     {{ person.profile }}
                 </a>
             </div>
             <button class="button is-link has-text-white" routerLink="/new-profile">+ New Profile</button>
+            <button class="button is-danger has-text-white" [routerLink]="['/dashboard', profileId, 'delete-profile']" style="margin-top: 20px;" [disabled]="!profileId">Delete Profile</button>
         </div>
         <div class="action-container">
             <div class="workout-container">
-                <h1 class="corner-title has-text-primary">
-                    Workout
-                </h1>
+                <div class="workout-title-bar">
+                    <h1 class="corner-title workout-title has-text-primary">
+                        Workout
+                    </h1>
+                    <input type="text" class="workout-type-input-field" placeholder="Enter New Workout Name..." [(ngModel)]="WorkoutTextInput" *ngIf="profileId">
+                    <button routerLink="" class="circle-add-button button is-link " (click)="addWorkoutInfo(WorkoutTextInput)" *ngIf="profileId">
+                        <img src="../../../assets/plus-icon.svg">
+                    </button>
+                </div>
+                <div class="governor" *ngIf="workouts">
+                    <div class="workout-stats">
+                        <div class="workout-type-container">
+                            <h1 class="title">
+                                Workout Type
+                            </h1>
+                            <div class="workout-type-box">
+                                <div [class]="menuToggle" (click)="toggleMenu()">
+                                    <div class="dropdown-trigger">
+                                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                        <span>{{ selectedWorkoutType }}</span>
+                                        <span class="icon is-small">
+                                          <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                      </button>
+                                    </div>
+                                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                        <div class="dropdown-content">
+                                            <div *ngIf="workouts">
+                                                <a class="dropdown-item" *ngFor="let workout of workouts" (click)="getWorkoutInfo(workout)">
+                                                    <div class="workout-dropdown-title">
+                                                        {{ workout.workout.workoutType.workoutName }}
+                                                    </div>
+                                                    <div class="workout-delete-button">
+                                                        <button class="button workout-delete-icon" (click)="deleteWorkout(workout._id, workout.workout.workoutType.workoutName)">
+                                                            <div class="icon">
+                                                                <i class="fas fa-trash"></i>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div *ngIf="workouts.length === 0">
+                                                <p class="dropdown-item">
+                                                    Add Workouts
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="workout-date-container">
+                            <h1 class="title">
+                                Last Workout Date
+                            </h1>
+                            <div class="workout-date-box">
+                                {{ selectedWorkoutLastDate }}
+                            </div>
+                        </div>
+                        <div class="workout-info-container">
+                            <h1 class="title">
+                                Last Workout Info
+                            </h1>
+                            <div class="workout-info-box">
+                                <div class="workout-info-weight">
+                                    {{ selectedWorkoutLastWeight }}
+                                </div>
+                                <div class="workout-info-reps">
+                                    {{ selectedWorkoutLastReps }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="workout-input">
+                        <div class="workout-type-input">
+                            <input #typeInput type="text" class="workout-type-field" readonly="readonly" [placeholder]="selectedWorkoutType">
+                        </div>
+                        <div class="workout-weight-input">
+                            <input #weightInput type="number" class="workout-weight-field" placeholder="Enter Weight..." [(ngModel)]="weightInputNumber">
+                        </div>
+                        <div class="workout-reps-input">
+                            <input #repsInput type="number" class="workout-reps-field" placeholder="Enter Reps..." [(ngModel)]="repsInputNumber">
+                        </div>
+                        <div class="workout-input-button">
+                            <button class="workout-submit button is-link has-text-white" [disabled]="!weightInput.value || !repsInput.value || typeInput.placeholder == 'Select a Workout'" (click)="updateWorkoutInfo(weightInput.value, repsInput.value)">
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="governor" *ngIf="!workouts">
+                    <div class="title-item">
+                        <h1 class="title">
+                            Select a profile
+                        </h1>
+                    </div>
+                </div>
             </div>
             <div class="health-container">
                 <h1 class="corner-title has-text-primary">

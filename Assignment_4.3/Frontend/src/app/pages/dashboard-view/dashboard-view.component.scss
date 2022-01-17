@@ -26,6 +26,8 @@
     background: $MatteWhite;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
+    min-width: 1000px;
+    min-height: 600px;
     .workout-container {
         display: flex;
         height: 50%;
@@ -60,6 +62,213 @@
         &.is-active {
             background-color: $MatteWhite;
             color: $LightGold;
+        }
+    }
+}
+
+.workout-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.governor {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    .title-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+}
+
+.workout-stats {
+    display: flex;
+    height: 60%;
+    width: 100%;
+}
+
+.workout-input {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.workout-type-container {
+    display: flex;
+    flex-direction: column;
+    width: 33.333%;
+    align-items: center;
+    border-right: 2px solid black;
+    .title {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .workout-type-box {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        font-family: 'Lato';
+        font-size: 24px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: -20px;
+    }
+}
+
+.workout-date-container {
+    display: flex;
+    flex-direction: column;
+    width: 33.333%;
+    align-items: center;
+    border-right: 2px solid black;
+    .title {
+        padding-top: 20px;
+    }
+    .workout-date-box {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Lato';
+        font-size: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: -20px;
+    }
+}
+
+.workout-info-container {
+    display: flex;
+    flex-direction: column;
+    width: 33.333%;
+    align-items: center;
+    .title {
+        padding-top: 20px;
+    }
+    .workout-info-box {
+        height: 100%;
+        .workout-info-weight {
+            display: flex;
+            flex-direction: column;
+            height: 50%;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Lato';
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .workout-info-reps {
+            display: flex;
+            flex-direction: column;
+            height: 50%;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Lato';
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    }
+}
+
+.workout-input {
+    display: flex;
+    flex-direction: row;
+    .workout-type-input {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 30%;
+        align-items: center;
+        justify-content: center;
+        .workout-type-field {
+            width: 80%;
+            text-align: center;
+        }
+    }
+    .workout-weight-input {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 30%;
+        align-items: center;
+        justify-content: center;
+        .workout-weight-field {
+            width: 80%;
+        }
+    }
+    .workout-reps-input {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 30%;
+        align-items: center;
+        justify-content: center;
+        .workout-reps-field {
+            width: 80%;
+        }
+    }
+    .workout-input-button {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+.workout-title-bar {
+    display: flex;
+}
+
+.workout-title {
+    width: 70%;
+}
+
+.workout-type-input-field {
+    display: flex;
+    width: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+.circle-add-button {
+    margin-top: 10px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.dropdown-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-right: 10px;
+    .workout-dropdown-title {
+        width: auto;
+    }
+    .workout-delete-button {
+        display: flex;
+        flex-grow: 1;
+        width: auto;
+        margin-left: 10px;
+        justify-content: flex-end;
+        .workout-delete-icon {
+            background: $MatteWhite;
+            color: $BlackestBlack;
+            &:hover {
+                background: $danger;
+                color: white;
+            }
         }
     }
 }
