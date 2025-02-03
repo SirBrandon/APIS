@@ -6,7 +6,6 @@ app.get('/listUsers', (req, res) => {
     fs.readFile(__dirname + "/" + "users.json", 'utf-8', (err, data) => {
         console.log(data);
         res.end(data);
-        //Look over here!
     });
 });
 
